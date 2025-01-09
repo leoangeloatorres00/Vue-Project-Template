@@ -1,5 +1,9 @@
 <template>
-  <div class="container">
+  <div>
+    <div class="title-container" v-if="onTitle">
+      <v-icon small class="icon">{{ titleicon }}</v-icon>
+      <span class="input-title">{{ title }}</span>
+    </div>
     <v-text-field
       outlined
       v-model="value"
@@ -7,6 +11,7 @@
       :placeholder="placeholder"
       append-icon="mdi-chevron-down"
       readonly
+      :disabled="disabled"
       @click="onClick"
     />
     <v-bottom-sheet v-model="sheet">
@@ -56,6 +61,18 @@ export default {
         return "";
       },
     },
+    title: {
+      type: String,
+      default: () => {
+        return "";
+      },
+    },
+    titleicon: {
+      type: String,
+      default: () => {
+        return "";
+      },
+    },
     items: {
       type: Array,
       default: () => {
@@ -68,6 +85,12 @@ export default {
         return "";
       },
     },
+    disabled: {
+      type: Boolean,
+      default: () => {
+        return false;
+      },
+    },
   },
   data() {
     return {
@@ -77,26 +100,31 @@ export default {
       lists: [],
     };
   },
-  mounted() {
-    this.lists = this.items;
+  computed: {
+    onTitle: function () {
+      return this.title != "";
+    },
   },
   watch: {
     search: function (value) {
-      if (value == "" || value == null) {
-        this.lists = this.items;
-        return;
-      }
+      this.onSearchEmpty();
 
       this.onSearch(value);
     },
   },
   methods: {
     onClick() {
+      if (this.disabled) return;
+
+      if (this.onSearchEmpty()) return (this.sheet = true);
+
+      this.onSearch(this.search);
+
       this.sheet = true;
     },
     onSelect(item) {
       this.sheet = false;
-      this.value = item.state;
+      this.value = item[this.keys];
     },
     onSearch(value) {
       const items = this.items.filter((items) => {
@@ -110,16 +138,21 @@ export default {
 
       this.lists = items;
     },
+    onSearchEmpty() {
+      if (this.search == "" || this.search == null) {
+        this.lists = this.items;
+        return;
+      }
+
+      return true;
+    },
   },
 };
 </script>
 
-<style scoped>
-.container {
-  margin: 10px;
-  padding: 10px;
-}
+<style></style>
 
+<style scoped>
 .sheet {
   min-height: 300px;
 }
@@ -132,5 +165,15 @@ export default {
 .lists {
   overflow-y: auto;
   max-height: 600px;
+}
+
+.title-container {
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
+.input-title {
+  margin-left: 4px;
+  font-size: 12px;
 }
 </style>

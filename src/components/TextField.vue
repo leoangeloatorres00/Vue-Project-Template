@@ -1,5 +1,9 @@
 <template>
-  <div class="container">
+  <div classs="container">
+    <div class="title-container" v-if="onTitle">
+      <v-icon small class="icon">{{ titleicon }}</v-icon>
+      <span class="input-title">{{ title }}</span>
+    </div>
     <v-text-field
       outlined
       :class="addClass"
@@ -24,6 +28,18 @@
 export default {
   props: {
     placeholder: {
+      type: String,
+      default: () => {
+        return "";
+      },
+    },
+    title: {
+      type: String,
+      default: () => {
+        return "";
+      },
+    },
+    titleicon: {
       type: String,
       default: () => {
         return "";
@@ -67,15 +83,16 @@ export default {
       return this.message != "" ? "v-text-field--error" : "";
     },
     onPrefix: function () {
-      if (this.type == "amount") return "₱";
+      if (this.type == "amount") return "PHP";
       if (this.type == "mobile") return "+63";
 
       return "";
     },
     onPrepend: function () {
-      if (!this.outlined) return "mdi-check-circle";
-
       return "";
+    },
+    onTitle: function () {
+      return this.title != "";
     },
   },
   methods: {
@@ -217,6 +234,10 @@ export default {
   border-bottom: solid thin var(--border-color) !important;
 }
 
+.v-text-field--outlined.regular .v-input__slot {
+  padding: 0 20px !important;
+}
+
 .v-text-field--error fieldset,
 .v-text-field--error:hover fieldset {
   border: solid thin var(--border-error-color) !important;
@@ -242,5 +263,15 @@ export default {
   padding: 5px 0px 0px;
 
   color: var(--error-color);
+}
+
+.title-container {
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
+.input-title {
+  margin-left: 4px;
+  font-size: 12px;
 }
 </style>
