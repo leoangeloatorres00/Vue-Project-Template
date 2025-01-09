@@ -1,12 +1,22 @@
 <template>
   <div>
-    <TextField
-      ref="text"
-      placeholder="Enter the amount"
-      type="amount"
-      :outlined="false"
-    />
-    <TextField ref="text2" placeholder="Enter the amount" type="amount" />
+    <div class="container">
+      <TextField
+        ref="text"
+        placeholder="0.00"
+        type="amount"
+        title="Amount"
+        :titleicon="icon"
+        :outlined="false"
+      />
+
+      <TextField
+        ref="text2"
+        placeholder="Enter the amount"
+        type="amount"
+        title="Amount"
+      />
+    </div>
 
     <Button ref="btnBack" @click="onBack"> Return Home </Button>
   </div>
@@ -20,6 +30,11 @@ export default {
   components: {
     Button,
     TextField,
+  },
+  data: () => {
+    return {
+      icon: "mdi-check-circle",
+    };
   },
   computed: {
     text() {
@@ -50,3 +65,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.container {
+  margin: 10px;
+  padding: 10px;
+}
+</style>

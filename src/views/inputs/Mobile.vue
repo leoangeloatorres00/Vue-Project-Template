@@ -1,16 +1,21 @@
 <template>
   <div>
-    <TextField
-      ref="text"
-      placeholder="Enter the mobile number"
-      type="mobile"
-      :outlined="false"
-    />
-    <TextField
-      ref="text2"
-      placeholder="Enter the mobile number"
-      type="mobile"
-    />
+    <div class="container">
+      <TextField
+        ref="text"
+        placeholder="Enter the mobile number"
+        type="mobile"
+        title="Mobile Number"
+        :titleicon="icon"
+        :outlined="false"
+      />
+      <TextField
+        ref="text2"
+        placeholder="Enter the mobile number"
+        type="mobile"
+        title="Mobile Number"
+      />
+    </div>
 
     <Button ref="btnBack" @click="onBack"> Return Home </Button>
   </div>
@@ -24,6 +29,11 @@ export default {
   components: {
     Button,
     TextField,
+  },
+  data: () => {
+    return {
+      icon: "mdi-check-circle",
+    };
   },
   computed: {
     text() {
@@ -54,3 +64,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.container {
+  margin: 10px;
+  padding: 10px;
+}
+</style>

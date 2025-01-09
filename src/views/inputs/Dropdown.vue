@@ -1,11 +1,13 @@
 <template>
   <div>
-    <Dropdown
-      ref="state"
-      :items="items"
-      keys="state"
-      placeholder="Select state"
-    />
+    <div class="container">
+      <Dropdown
+        ref="state"
+        :items="items"
+        keys="state"
+        placeholder="Select state"
+      />
+    </div>
 
     <Button ref="btnBack" @click="onBack"> Return Home </Button>
   </div>
@@ -56,3 +58,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.container {
+  margin: 10px;
+  padding: 10px;
+}
+</style>

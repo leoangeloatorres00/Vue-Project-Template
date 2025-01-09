@@ -1,16 +1,21 @@
 <template>
   <div>
-    <TextField
-      ref="text"
-      placeholder="Enter the first name"
-      :disabled="true"
-      :outlined="false"
-    />
-    <TextField
-      ref="text2"
-      placeholder="Enter the first name"
-      :disabled="true"
-    />
+    <div class="container">
+      <TextField
+        ref="text"
+        placeholder="Enter the first name"
+        title="First Name"
+        :titleicon="icon"
+        :disabled="true"
+        :outlined="false"
+      />
+      <TextField
+        ref="text2"
+        placeholder="Enter the first name"
+        title="First Name"
+        :disabled="true"
+      />
+    </div>
 
     <Button ref="btnBack" @click="onBack"> Return Home </Button>
   </div>
@@ -24,6 +29,11 @@ export default {
   components: {
     Button,
     TextField,
+  },
+  data: () => {
+    return {
+      icon: "mdi-check-circle",
+    };
   },
   computed: {
     text() {
@@ -52,3 +62,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.container {
+  margin: 10px;
+  padding: 10px;
+}
+</style>

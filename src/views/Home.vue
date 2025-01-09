@@ -113,9 +113,4 @@ export default {
   margin: 10px;
   padding: 10px;
 }
-
-.container {
-  margin: 10px;
-  padding: 10px;
-}
 </style>
