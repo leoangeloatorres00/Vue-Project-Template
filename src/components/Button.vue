@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="button">
     <v-btn
       block
       outlined
@@ -7,6 +7,7 @@
       @click="onClick"
       :loading="isLoading"
       :disabled="isDisabled"
+      :rounded="isRounded"
     >
       <slot></slot>
     </v-btn>
@@ -34,6 +35,12 @@ export default {
         return false;
       },
     },
+    rounded: {
+      type: Boolean,
+      default: () => {
+        return false;
+      },
+    },
   },
   data: () => {
     return {
@@ -46,7 +53,10 @@ export default {
       return this.loading ? this.complete : false;
     },
     isDisabled: function () {
-      return this.disable ? this.disable : false;
+      return this.disable;
+    },
+    isRounded: function () {
+      return this.rounded;
     },
   },
   methods: {
@@ -81,9 +91,8 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin: 10px;
-  padding: 10px;
+.button {
+  margin: 32px 0px;
 }
 
 .v-btn {

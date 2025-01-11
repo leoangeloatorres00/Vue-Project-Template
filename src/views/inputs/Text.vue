@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <div class="container">
-      <TextField
-        ref="text"
-        placeholder="Enter the first name"
-        title="First Name"
-        :titleicon="icon"
-        :outlined="false"
-      />
-      <TextField
-        ref="text2"
-        placeholder="Enter the first name"
-        title="First Name"
-      />
-    </div>
+  <div class="container">
+    <TextField
+      ref="text"
+      placeholder="Enter the first name"
+      title="First Name"
+      :titleicon="icon"
+      :outlined="false"
+    />
+    <TextField
+      ref="text2"
+      placeholder="Enter the first name"
+      title="First Name"
+    />
 
     <Button ref="btnBack" @click="onBack"> Return Home </Button>
   </div>

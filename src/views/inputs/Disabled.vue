@@ -1,21 +1,20 @@
 <template>
-  <div>
-    <div class="container">
-      <TextField
-        ref="text"
-        placeholder="Enter the first name"
-        title="First Name"
-        :titleicon="icon"
-        :disabled="true"
-        :outlined="false"
-      />
-      <TextField
-        ref="text2"
-        placeholder="Enter the first name"
-        title="First Name"
-        :disabled="true"
-      />
-    </div>
+  <div class="container">
+    <TextField
+      ref="text"
+      placeholder="Enter the first name"
+      title="First Name"
+      :titleicon="icon"
+      :disabled="true"
+      :outlined="false"
+    />
+
+    <TextField
+      ref="text2"
+      placeholder="Enter the first name"
+      title="First Name"
+      :disabled="true"
+    />
 
     <Button ref="btnBack" @click="onBack"> Return Home </Button>
   </div>

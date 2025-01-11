@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <div class="container">
-      <Dropdown
-        ref="state"
-        :items="items"
-        keys="state"
-        placeholder="Select state"
-      />
-    </div>
+  <div class="container">
+    <Dropdown
+      ref="state"
+      :items="items"
+      keys="state"
+      placeholder="Select state"
+    />
 
     <Button ref="btnBack" @click="onBack"> Return Home </Button>
   </div>

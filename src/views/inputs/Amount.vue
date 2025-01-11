@@ -1,22 +1,20 @@
 <template>
-  <div>
-    <div class="container">
-      <TextField
-        ref="text"
-        placeholder="0.00"
-        type="amount"
-        title="Amount"
-        :titleicon="icon"
-        :outlined="false"
-      />
+  <div class="container">
+    <TextField
+      ref="text"
+      placeholder="0.00"
+      type="amount"
+      title="Amount"
+      :titleicon="icon"
+      :outlined="false"
+    />
 
-      <TextField
-        ref="text2"
-        placeholder="Enter the amount"
-        type="amount"
-        title="Amount"
-      />
-    </div>
+    <TextField
+      ref="text2"
+      placeholder="Enter the amount"
+      type="amount"
+      title="Amount"
+    />
 
     <Button ref="btnBack" @click="onBack"> Return Home </Button>
   </div>

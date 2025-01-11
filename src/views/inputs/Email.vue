@@ -1,22 +1,20 @@
 <template>
-  <div>
-    <div class="container">
-      <TextField
-        ref="text"
-        placeholder="Enter the email address"
-        type="email"
-        title="Email Address"
-        :titleicon="icon"
-        :outlined="false"
-      />
+  <div class="container">
+    <TextField
+      ref="text"
+      placeholder="Enter the email address"
+      type="email"
+      title="Email Address"
+      :titleicon="icon"
+      :outlined="false"
+    />
 
-      <TextField
-        ref="text2"
-        placeholder="Enter the email address"
-        type="email"
-        title="Email Address"
-      />
-    </div>
+    <TextField
+      ref="text2"
+      placeholder="Enter the email address"
+      type="email"
+      title="Email Address"
+    />
 
     <Button ref="btnBack" @click="onBack"> Return Home </Button>
   </div>

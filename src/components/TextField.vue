@@ -1,5 +1,5 @@
 <template>
-  <div classs="container">
+  <div>
     <div class="title-container" v-if="onTitle">
       <v-icon small class="icon">{{ titleicon }}</v-icon>
       <span class="input-title">{{ title }}</span>
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import { formatAmount, unformatAmount } from "@/utils/data";
+
 export default {
   props: {
     placeholder: {
@@ -118,42 +120,15 @@ export default {
     },
     onBlur() {
       if (this.type == "amount" && this.value != "") {
-        const number = this.value;
-        this.formatAmount(number);
+        const amount = this.value;
+        this.value = formatAmount(amount);
       }
     },
     onFocus() {
       if (this.type == "amount" && this.value != "") {
-        let formattedAmount = this.value.split(".");
-
-        // remove the .00 in amount in whole number
-        if (formattedAmount[1] == "00") {
-          this.value = formattedAmount[0];
-        }
-
-        // remove comma in amount
-        if (this.value % 1 != 0) {
-          this.value = this.value.replaceAll(",", "");
-        }
+        const amount = this.value;
+        this.value = unformatAmount(amount);
       }
-    },
-    formatAmount(number) {
-      const options = {
-        style: "decimal",
-      };
-
-      // add comma in amount
-      let formattedNumber = parseFloat(number).toLocaleString(
-        undefined,
-        options
-      );
-
-      // add .00 when amount is whole amount
-      if (formattedNumber.indexOf(".") == -1) {
-        formattedNumber += ".00";
-      }
-
-      this.value = formattedNumber;
     },
     isInputNumber(event) {
       if (this.isBackSpacePressed(event)) return;
@@ -253,11 +228,6 @@ export default {
 </style>
 
 <style scoped>
-.container {
-  margin: 10px;
-  padding: 10px;
-}
-
 .message {
   margin: 5px 0px 0px;
   padding: 5px 0px 0px;

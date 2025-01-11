@@ -27,6 +27,8 @@ export default {
   --prefix-color-icon: rgba(0, 0, 0, 0.42);
 
   --prepend-color-icon: rgba(117, 117, 117, 1);
+
+  --switch-active-color: rgba(25, 118, 209, 1);
 }
 
 /* Remove the ripple effect in button */

@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="title-container" v-if="onTitle">
-      <v-icon small class="icon">{{ titleicon }}</v-icon>
       <span class="input-title">{{ title }}</span>
     </div>
     <v-text-field
@@ -62,12 +61,6 @@ export default {
       },
     },
     title: {
-      type: String,
-      default: () => {
-        return "";
-      },
-    },
-    titleicon: {
       type: String,
       default: () => {
         return "";
@@ -149,8 +142,6 @@ export default {
   },
 };
 </script>
-
-<style></style>
 
 <style scoped>
 .sheet {

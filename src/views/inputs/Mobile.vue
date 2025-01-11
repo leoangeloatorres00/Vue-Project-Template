@@ -1,21 +1,20 @@
 <template>
-  <div>
-    <div class="container">
-      <TextField
-        ref="text"
-        placeholder="Enter the mobile number"
-        type="mobile"
-        title="Mobile Number"
-        :titleicon="icon"
-        :outlined="false"
-      />
-      <TextField
-        ref="text2"
-        placeholder="Enter the mobile number"
-        type="mobile"
-        title="Mobile Number"
-      />
-    </div>
+  <div class="container">
+    <TextField
+      ref="text"
+      placeholder="Enter the mobile number"
+      type="mobile"
+      title="Mobile Number"
+      :titleicon="icon"
+      :outlined="false"
+    />
+
+    <TextField
+      ref="text2"
+      placeholder="Enter the mobile number"
+      type="mobile"
+      title="Mobile Number"
+    />
 
     <Button ref="btnBack" @click="onBack"> Return Home </Button>
   </div>

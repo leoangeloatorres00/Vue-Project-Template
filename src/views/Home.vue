@@ -62,6 +62,8 @@ export default {
         "text",
         "dropdown",
         "mobile",
+        "switch",
+        "list",
       ],
     };
   },
