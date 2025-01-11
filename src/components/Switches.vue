@@ -75,16 +75,16 @@ export default {
 }
 
 .switch {
-  width: calc(50% - 10px);
+  width: calc(50% - 5px);
   height: 55px !important;
 }
 
 .switch-0 {
-  margin-inline: 0px 10px;
+  margin-inline: 0px 5px;
 }
 
 .switch-1 {
-  margin-inline: 10px 0px;
+  margin-inline: 5px 0px;
 }
 
 .switch.active {

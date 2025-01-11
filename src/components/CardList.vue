@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <template v-for="(item, index) in items">
       <v-card class="card" :elevation="isWithBorder" :key="index">
         <v-list subheader two-line>

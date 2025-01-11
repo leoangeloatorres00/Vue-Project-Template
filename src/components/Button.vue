@@ -29,7 +29,7 @@ export default {
         return false;
       },
     },
-    disable: {
+    disabled: {
       type: Boolean,
       default: () => {
         return false;
@@ -61,6 +61,8 @@ export default {
   },
   methods: {
     onClick() {
+      if (this.disabled) return;
+
       const self = this;
 
       self.$emit("click", true);

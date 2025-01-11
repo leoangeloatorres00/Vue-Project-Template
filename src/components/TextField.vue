@@ -131,6 +131,8 @@ export default {
       }
     },
     isInputNumber(event) {
+      if (this.isArrowPressed(event)) return;
+
       if (this.isBackSpacePressed(event)) return;
 
       if (this.isTabPressed(event)) return;
@@ -188,6 +190,14 @@ export default {
     },
     isTabPressed(event) {
       return event.keyCode == 9;
+    },
+    isArrowPressed(event) {
+      return (
+        event.keyCode == 37 ||
+        event.keyCode == 38 ||
+        event.keyCode == 39 ||
+        event.keyCode == 40
+      );
     },
     isDecimalExist(event) {
       const isNumberDecimal = this.value % 1 != 0;
