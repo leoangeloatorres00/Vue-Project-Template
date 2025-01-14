@@ -15,6 +15,8 @@
 import Button from "@/components/Button.vue";
 import Dropdown from "@/components/Dropdown.vue";
 
+import { userInput } from "@/utils/data.js";
+
 export default {
   components: {
     Button,
@@ -37,18 +39,14 @@ export default {
     },
   },
   mounted() {
-    this.userInput("state");
+    userInput(this, "state", this.onTest);
   },
   methods: {
-    userInput(name) {
-      this.$watch(
-        () => {
-          return this[name];
-        },
-        (value) => {
-          console.log(value);
-        }
-      );
+    onTest() {
+      if (this.state != "") {
+        console.log(this.state);
+        return;
+      }
     },
     onBack() {
       this.$router.go(-1);

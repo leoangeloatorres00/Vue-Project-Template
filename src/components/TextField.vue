@@ -15,6 +15,7 @@
       @keydown="onKeyDown"
       @keyup="onKeyUp"
       @keyup.native.enter="$refs[uniqueIdentifier].blur()"
+      @keydown.native.enter="$refs[uniqueIdentifier].blur()"
       @blur="onBlur"
       @focus="onFocus"
       :prefix="onPrefix"

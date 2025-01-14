@@ -24,6 +24,8 @@
 import Button from "@/components/Button.vue";
 import TextField from "@/components/TextField.vue";
 
+import { userInput } from "@/utils/data.js";
+
 export default {
   components: {
     Button,
@@ -43,19 +45,20 @@ export default {
     },
   },
   mounted() {
-    this.userInput("text");
-    this.userInput("text2");
+    userInput(this, "text", this.onTest);
+    userInput(this, "text2", this.onTest);
   },
   methods: {
-    userInput(name) {
-      this.$watch(
-        () => {
-          return this[name];
-        },
-        (value) => {
-          console.log(value);
-        }
-      );
+    onTest() {
+      if (this.text != "") {
+        console.log(this.text);
+        return;
+      }
+
+      if (this.text2 != "") {
+        console.log(this.text2);
+        return;
+      }
     },
     onBack() {
       this.$router.go(-1);

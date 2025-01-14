@@ -44,3 +44,12 @@ export const unformatAmount = (amount) => {
 
   return unformattedAmount;
 };
+
+export const userInput = (self, name, callback) => {
+  self.$watch(
+    () => self[name],
+    () => {
+      return callback();
+    }
+  );
+};
