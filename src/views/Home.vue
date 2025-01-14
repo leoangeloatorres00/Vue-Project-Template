@@ -16,7 +16,7 @@
 
     <Button ref="btnAlert" @click="onAlertShow"> Show Alert Button </Button>
 
-    <Button ref="btnDisabled" :disable="!disable"> Disabled Button </Button>
+    <Button ref="btnDisabled" :disabled="!disable"> Disabled Button </Button>
 
     <Button ref="btnLoading" @click="onLoadingShow" :loading="true">
       Show Loading Button

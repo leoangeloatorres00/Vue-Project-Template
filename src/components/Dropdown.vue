@@ -6,6 +6,7 @@
     <v-text-field
       outlined
       v-model="value"
+      :class="addClass"
       hide-details="true"
       :placeholder="placeholder"
       append-icon="mdi-chevron-down"
@@ -97,6 +98,9 @@ export default {
     onTitle: function () {
       return this.title != "";
     },
+    addClass: function () {
+      return this.disabled ? "disabled" : "";
+    },
   },
   watch: {
     search: function (value) {
@@ -166,5 +170,10 @@ export default {
 .input-title {
   margin-left: 4px;
   font-size: 12px;
+}
+
+.v-text-field--outlined.v-input--is-disabled:not(.regular) fieldset,
+.v-text-field--outlined.v-input--is-disabled:not(.regular):hover fieldset {
+  background: var(--background-disabled-color);
 }
 </style>

@@ -4,6 +4,7 @@
       block
       outlined
       elevation="0"
+      :class="addClass"
       @click="onClick"
       :loading="isLoading"
       :disabled="isDisabled"
@@ -58,6 +59,9 @@ export default {
     isRounded: function () {
       return this.rounded;
     },
+    addClass: function () {
+      return this.disabled ? "disabled" : "";
+    },
   },
   methods: {
     onClick() {
@@ -105,7 +109,8 @@ export default {
   border: thin solid var(--border-color) !important;
 }
 
-.v-btn--disabled {
-  border: thin solid var(--border-disabled-color) !important;
+.v-btn--outlined.disabled {
+  background: var(--background-disabled-color) !important;
+  color: var(--font-disabled-color) !important;
 }
 </style>

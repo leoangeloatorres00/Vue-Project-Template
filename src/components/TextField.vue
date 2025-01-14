@@ -214,6 +214,11 @@ export default {
   border: solid thin var(--border-color) !important;
 }
 
+.v-text-field--outlined.v-input--is-disabled:not(.regular) fieldset,
+.v-text-field--outlined.v-input--is-disabled:not(.regular):hover fieldset {
+  background: var(--background-disabled-color);
+}
+
 .v-text-field--outlined.regular fieldset,
 .v-text-field--outlined.regular:hover fieldset {
   border: 5px solid transparent;
