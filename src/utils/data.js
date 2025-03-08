@@ -29,7 +29,7 @@ export const formatAmount = (amount) => {
 };
 
 export const unformatAmount = (amount) => {
-  let unformattedAmount = amount;
+  let unformattedAmount = amount.toString();
   let formattedAmount = unformattedAmount.split(".");
 
   // remove the .00 in amount in whole number
@@ -45,11 +45,78 @@ export const unformatAmount = (amount) => {
   return unformattedAmount;
 };
 
-export const userInput = (self, name, callback) => {
-  self.$watch(
-    () => self[name],
-    () => {
-      return callback();
-    }
-  );
+export const truncateText = (text, maxLength = 30) => {
+  if (text.length > maxLength) {
+    return text.slice(0, maxLength) + "...";
+  }
+  return text;
+};
+
+export const capitalizeFirstLetter = (text) => {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+};
+
+export const sortList = (lists, key) => {
+  return lists.sort((a, b) => {
+    return a[key].localeCompare(b[key]);
+  });
+};
+
+export const maskedText = (text, maxLength = 5) => {
+  let start = text.length - maxLength;
+  let end = text.length;
+
+  let prefix = "";
+  if (start < 0) {
+    start = maxLength;
+  }
+
+  for (let index = 0; index < start; index++) {
+    prefix += "*";
+  }
+
+  text = text.substring(start, end);
+
+  return prefix + text;
+};
+
+export const copyText = (text) => {
+  navigator.clipboard.writeText(text);
+};
+
+export const getTime = (dateTime) => {
+  const date = new Date(dateTime);
+
+  const options = {
+    hour: "2-digit",
+    minute: "2-digit",
+  };
+
+  return date.toLocaleTimeString("en-US", options);
+};
+
+export const getDate = (dateTime) => {
+  const date = new Date(dateTime);
+
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+
+  return date.toLocaleDateString("en-US", options);
+};
+
+export const getDateTime = (dateTime) => {
+  const date = new Date(dateTime);
+
+  const options = {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  };
+
+  return date.toLocaleDateString("en-US", options);
 };

@@ -1,27 +1,36 @@
-import axios from "axios";
+import { isDevelopment } from "@/config";
 
-axios.defaults.baseURL = "https://dummyjson.com";
+import { api as DEV_API } from "@/services/dev_api";
+import { api as PROD_API } from "@/services/prod_api";
 
-const service = axios.create({
-  timeout: 60000,
-});
+import request from "@/utils/service";
 
-service.interceptors.request.use(
-  (config) => {
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+const post = (path, payload) => {
+  const url = getURL(path);
+  return request.post(url, payload).then((response) => {
+    if (response != undefined) {
+      const { data } = response;
+      return data;
+    }
+  });
+};
 
-service.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+const get = (path, payload) => {
+  const url = getURL(path);
+  return request.get(url, payload).then((response) => {
+    if (response != undefined) {
+      const { data } = response;
+      return data;
+    }
+  });
+};
 
-export default service;
+const getURL = (path) => {
+  const api = isDevelopment ? DEV_API : PROD_API;
+  return api[path];
+};
+
+export const api = {
+  post: post,
+  get: get,
+};

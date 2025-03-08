@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Loading from "@/components/Loading.vue";
+import Loading from "@/components/elements/loading.vue";
 
 export default {
   components: {
@@ -17,22 +17,94 @@ export default {
 
 <style>
 :root {
-  --border-color: rgba(0, 0, 0, 0.42);
-  --border-error-color: rgba(213, 0, 0, 1);
+  /* neutral */
+  --white: #ffffff;
+  --black: #000000;
 
-  --border-disabled-color: rgba(0, 0, 0, 0.26);
+  /* error */
+  --cg-red: #e53935;
 
-  --error-color: rgba(213, 0, 0, 1);
+  /* disabled */
+  --lotion: #fafafa;
 
-  --prefix-color-icon: rgba(0, 0, 0, 0.42);
+  /* link */
+  --blue-cola: #0080da;
 
-  --prepend-color-icon: rgba(117, 117, 117, 1);
+  /* primary */
+  --oxford-blue: #0c2a42;
 
-  --switch-active-color: rgba(25, 118, 209, 1);
+  /* border */
+  --spanish-gray: #9e9e9e;
 
-  --background-disabled-color: rgba(224, 224, 224, 0.3);
+  /* overlay */
+  --black-lighten: #0000001a;
 
-  --font-disabled-color: rgba(0, 0, 0, 0.26);
+  /* secondary */
+  --dark-midnight-blue: #003a63;
+
+  /* Text Field, Text Area */
+  --input-border-primary: var(--spanish-gray);
+  --input-border-error: var(--cg-red);
+
+  --input-background-primary: var(--white);
+  --input-background-disabled: var(--lotion);
+
+  --input-text-error: var(--cg-red);
+  --input-text-primary: var(--oxford-blue);
+  --input-text-secondary: var(--spanish-gray);
+
+  /* Button */
+  --button-text-primary: var(--oxford-blue);
+  --button-border-primary: var(--oxford-blue);
+  --button-background-primary: var(--white);
+
+  --button-text-secondary: var(--white);
+  --button-border-secondary: var(--oxford-blue);
+  --button-background-secondary: var(--oxford-blue);
+
+  /* Paragraph, Span, Label */
+  --text-primary: var(--black);
+
+  --text-secondary: var(--oxford-blue);
+
+  --text-disabled: var(--lotion);
+
+  --text-error: var(--lotion);
+
+  --link-primary: var(--blue-cola);
+
+  /* Overlay */
+  --overlay-background-primary: var(--black-lighten);
+  --overlay-loading-primary: var(--oxford-blue);
+  --overlay-loading-secondary: var(--white);
+
+  /* Carousel */
+  --carousel-indicator-primary: var(--oxford-blue);
+
+  /* Checkbox */
+  --checkbox-text-primary: var(--oxford-blue);
+
+  /* Radio */
+  --radio-text-primary: var(--oxford-blue);
+
+  /* Switch */
+  --switch-border-primary: var(--oxford-blue);
+  --switch-background-primary: var(--oxford-blue);
+}
+
+* {
+  color: var(--text-secondary);
+  caret-color: var(--text-secondary);
+
+  font-family: "Satoshi-Medium", "Roboto" !important;
+  font-weight: 500;
+}
+
+h2,
+h3,
+h4 {
+  font-family: "Satoshi-Bold", "Roboto" !important;
+  font-weight: 700;
 }
 
 /* Remove the ripple effect in button */

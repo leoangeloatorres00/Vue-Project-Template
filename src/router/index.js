@@ -1,72 +1,58 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-import Home from "@/views/Home.vue";
-import Amount from "@/views/inputs/Amount.vue";
-import Disabled from "@/views/inputs/Disabled.vue";
-import Dropdown from "@/views/inputs/Dropdown.vue";
-import Email from "@/views/inputs/Email.vue";
-import Mobile from "@/views/inputs/Mobile.vue";
-import Number from "@/views/inputs/Number.vue";
-import Text from "@/views/inputs/Text.vue";
-import Switches from "@/views/inputs/Switches.vue";
-import CardList from "@/views/inputs/CardList.vue";
+import { lazyLoad } from "@/utils";
 
 Vue.use(Router);
 
 const routes = [
   {
-    path: "/",
-    component: Home,
+    path: "/textfield",
+    name: "/textfield",
+    component: lazyLoad("textfield"),
+    meta: {
+      isRegistered: false,
+    },
   },
-
   {
-    path: "/amount",
-    component: Amount,
+    path: "/button",
+    name: "/button",
+    component: lazyLoad("button"),
+    meta: {
+      isRegistered: false,
+    },
   },
-
-  {
-    path: "/disabled",
-    component: Disabled,
-  },
-
   {
     path: "/dropdown",
-    component: Dropdown,
-  },
-
-  {
-    path: "/email",
-    component: Email,
-  },
-
-  {
-    path: "/mobile",
-    component: Mobile,
-  },
-
-  {
-    path: "/number",
-    component: Number,
-  },
-
-  {
-    path: "/text",
-    component: Text,
-  },
-
-  {
-    path: "/switch",
-    component: Switches,
-  },
-
-  {
-    path: "/list",
-    component: CardList,
+    name: "/dropdown",
+    component: lazyLoad("dropdown"),
+    meta: {
+      isRegistered: false,
+    },
   },
 ];
 
-export default new Router({
+const router = new Router({
   mode: "history",
   routes,
+  methods: {
+    go(name, query) {
+      return go(name, query);
+    },
+  },
 });
+
+router.beforeEach(async (to, from, next) => {
+  next();
+});
+
+export default router;
+
+// External Methods
+const go = (name, query = {}) => {
+  let payload = {};
+
+  payload.name = name;
+  payload.query = query;
+  router.push(payload);
+};
