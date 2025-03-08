@@ -71,10 +71,6 @@ export default {
 
     this.onCheck(attribute, true);
 
-    attribute = `keys="key"`;
-
-    this.onCheck(attribute, true);
-
     this.fastFoodLists = this.getFastFood();
   },
   methods: {
