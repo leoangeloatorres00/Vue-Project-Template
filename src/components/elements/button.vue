@@ -131,7 +131,7 @@ export default {
 }
 
 .button-container .v-btn--outlined {
-  border: 3px solid var(--button-border-primary) !important;
+  border: 2px solid var(--button-border-primary) !important;
 }
 
 .button-container .v-btn--outlined.secondary {

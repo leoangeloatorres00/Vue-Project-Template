@@ -42,6 +42,10 @@ export default {
   /* secondary */
   --dark-midnight-blue: #003a63;
 
+  /* switches */
+  --light-blue: #48b3ff;
+  --pale-blue: #b6e0ff;
+
   /* Text Field, Text Area */
   --input-border-primary: var(--spanish-gray);
   --input-border-error: var(--cg-red);
@@ -88,8 +92,11 @@ export default {
   --radio-text-primary: var(--oxford-blue);
 
   /* Switch */
-  --switch-border-primary: var(--oxford-blue);
-  --switch-background-primary: var(--oxford-blue);
+  --switch-border-primary: var(--light-blue);
+  --switch-background-primary: var(--pale-blue);
+
+  --switch-border-secondary: var(--spanish-gray);
+  --switch-background-secondary: var(--white);
 }
 
 * {
