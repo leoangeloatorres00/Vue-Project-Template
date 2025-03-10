@@ -100,8 +100,8 @@ export default {
 }
 
 * {
-  color: var(--text-secondary);
-  caret-color: var(--text-secondary);
+  color: var(--text-secondary) !important;
+  caret-color: var(--text-secondary) !important;
 
   font-family: "Satoshi-Medium", "Roboto" !important;
   font-weight: 500;

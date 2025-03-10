@@ -51,7 +51,12 @@ export default {
 
 <style scoped>
 .radio {
-  margin-block: 10px;
+  margin-block: 10px 0px;
+}
+
+.radio >>> label {
+  font-size: 14px;
+  padding-block: 3px 0px;
 }
 
 .radio-container .v-input--radio-group {

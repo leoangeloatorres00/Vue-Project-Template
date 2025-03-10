@@ -64,12 +64,12 @@ export default {
 </script>
 
 <style>
-.button-container.switch > .v-btn--outlined {
+.switch-wrapper > .button-container.switch > .v-btn--outlined {
   border: 1px solid var(--switch-border-secondary) !important;
   background: var(--switch-background-secondary) !important;
 }
 
-.button-container.switch.active > .v-btn--outlined {
+.switch-wrapper > .button-container.switch.active > .v-btn--outlined {
   border: 1px solid var(--switch-border-primary) !important;
   background: var(--switch-background-primary) !important;
 }

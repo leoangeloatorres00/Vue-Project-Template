@@ -37,5 +37,6 @@ export default {
 .checkbox-text {
   font-size: 14px;
   text-align: left;
+  padding-block: 3px 0px;
 }
 </style>

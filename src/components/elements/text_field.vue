@@ -443,7 +443,7 @@ export default {
 }
 
 .message {
-  color: var(--input-text-error);
+  color: var(--input-text-error) !important;
 }
 
 .textfield-container {

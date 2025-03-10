@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import { lazyLoad } from "@/utils";
-
 export default {
   props: {
     prefix: {
@@ -42,7 +40,7 @@ export default {
     };
   },
   mounted() {
-    this.image = lazyLoad(this.src, "image");
+    this.image = require(`@/assets/images/${this.src}`);
   },
   methods: {
     onClick() {
