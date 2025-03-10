@@ -56,15 +56,20 @@
 </template>
 
 <script>
-import { lazyLoad } from "@/utils";
+import Layout from "@/layouts/index.vue";
+
+import Images from "@/components/elements/image.vue";
+import Search from "@/components/elements/search.vue";
+import TextField from "@/components/elements/text_field.vue";
+import BottomSheet from "@/components/elements/bottom_sheet.vue";
 
 export default {
   components: {
-    Layout: lazyLoad("index", "layout"),
-    Images: lazyLoad("image", "component"),
-    Search: lazyLoad("search", "component"),
-    BottomSheet: lazyLoad("text_field", "component"),
-    TextField: lazyLoad("bottom_sheet", "component"),
+    Layout,
+    Images,
+    Search,
+    TextField,
+    BottomSheet,
   },
   props: {
     placeholder: {

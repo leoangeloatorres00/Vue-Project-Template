@@ -72,8 +72,13 @@
 </template>
 
 <script>
+import Layout from "@/layouts/index.vue";
+
+import Button from "@/components/elements/button.vue";
+import TextField from "@/components/elements/text_field.vue";
+import BottomSheet from "@/components/elements/bottom_sheet.vue";
+
 import {
-  lazyLoad,
   observeInput,
   setLocalStorage,
   getLocalStorage,
@@ -82,10 +87,10 @@ import {
 
 export default {
   components: {
-    Layout: lazyLoad("index", "layout"),
-    Button: lazyLoad("button", "component"),
-    TextField: lazyLoad("text_field", "component"),
-    BottomSheet: lazyLoad("bottom_sheet", "component"),
+    Layout,
+    Button,
+    TextField,
+    BottomSheet,
   },
   props: {
     disabled: {

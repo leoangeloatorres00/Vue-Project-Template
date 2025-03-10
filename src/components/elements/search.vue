@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import { lazyLoad } from "@/utils";
+import TextField from "@/components/elements/text_field.vue";
 
 export default {
   components: {
-    TextField: lazyLoad("text_field", "component"),
+    TextField,
   },
   props: {
     items: {

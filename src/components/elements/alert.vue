@@ -18,12 +18,13 @@
 </template>
 
 <script>
-import { lazyLoad } from "@/utils";
+import Layout from "@/layouts/index.vue";
+import Images from "@/components/elements/image.vue";
 
 export default {
   components: {
-    Layout: lazyLoad("index", "layout"),
-    Images: lazyLoad("image", "component"),
+    Layout,
+    Images,
   },
   props: {
     title: {

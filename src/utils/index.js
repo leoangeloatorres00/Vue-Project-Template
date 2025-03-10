@@ -21,8 +21,6 @@ export const removeLocalStorage = (name) => {
 export const lazyLoad = (name, type = "view") => {
   if (type == "view") return loadView(name);
   if (type == "image") return loadImage(name);
-  if (type == "layout") return loadLayout(name);
-  if (type == "component") return loadComponent(name);
 };
 
 export const observeInput = (element, callback) => {
@@ -38,14 +36,6 @@ const loadView = (name) => {
   return () => import(`@/views/${name}.vue`);
 };
 
-const loadLayout = (name) => {
-  return () => import(`@/layouts/${name}.vue`);
-};
-
 const loadImage = (name) => {
   return () => import(`@/assets/images/${name}`);
-};
-
-const loadComponent = (name) => {
-  return () => import(`@/components/elements/${name}.vue`);
 };

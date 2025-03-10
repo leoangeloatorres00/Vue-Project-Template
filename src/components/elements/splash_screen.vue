@@ -13,12 +13,15 @@
 </template>
 
 <script>
+import Layout from "@/layouts/index.vue";
+import Images from "@/components/elements/image.vue";
+
 import { lazyLoad } from "@/utils";
 
 export default {
   components: {
-    Layout: lazyLoad("index", "layout"),
-    Images: lazyLoad("image", "component"),
+    Layout,
+    Images,
   },
   data: () => {
     return {

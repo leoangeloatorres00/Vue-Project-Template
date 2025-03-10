@@ -30,6 +30,14 @@ const routes = [
       isRegistered: false,
     },
   },
+  {
+    path: "/switch",
+    name: "/switch",
+    component: lazyLoad("switch"),
+    meta: {
+      isRegistered: false,
+    },
+  },
 ];
 
 const router = new Router({

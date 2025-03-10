@@ -16,11 +16,11 @@
 </template>
 
 <script>
-import { lazyLoad } from "@/utils";
+import Button from "@/components/elements/button.vue";
 
 export default {
   components: {
-    Button: lazyLoad("button", "component"),
+    Button,
   },
   props: {
     items: {
