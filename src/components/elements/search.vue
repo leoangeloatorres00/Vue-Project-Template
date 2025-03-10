@@ -12,9 +12,12 @@
 </template>
 
 <script>
-import TextField from "./text_field.vue";
+import { lazyLoad } from "@/utils";
 
 export default {
+  components: {
+    TextField: lazyLoad("text_field", "component"),
+  },
   props: {
     items: {
       type: Array,
@@ -35,9 +38,7 @@ export default {
       },
     },
   },
-  components: {
-    TextField,
-  },
+
   data() {
     return {
       show: false,

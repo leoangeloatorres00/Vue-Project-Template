@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { lazyLoadImage } from "@/utils";
+import { lazyLoad } from "@/utils";
 
 export default {
   props: {
@@ -42,7 +42,7 @@ export default {
     };
   },
   mounted() {
-    this.image = lazyLoadImage(this.src);
+    this.image = lazyLoad(this.src, "image");
   },
   methods: {
     onClick() {

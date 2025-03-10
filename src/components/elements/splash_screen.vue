@@ -4,7 +4,7 @@
       <Layout>
         <template v-slot:content>
           <div class="logo">
-            <v-img src="@/assets/images/eC_White_Reverse.webp"></v-img>
+            <Images :src="logo"></Images>
           </div>
         </template>
       </Layout>
@@ -13,13 +13,12 @@
 </template>
 
 <script>
-import Layout from "@/layouts/index";
-
-import { lazyLoadImage } from "@/utils";
+import { lazyLoad } from "@/utils";
 
 export default {
   components: {
-    Layout,
+    Layout: lazyLoad("index", "layout"),
+    Images: lazyLoad("image", "component"),
   },
   data: () => {
     return {
@@ -30,10 +29,10 @@ export default {
     var splashscreenWrapper = document.querySelector(".splashscreen-wrapper");
     splashscreenWrapper.style.setProperty(
       "--background",
-      `url(${lazyLoadImage("splashscreen_background.webp")})`
+      `url(${lazyLoad("splashscreen_background.webp", "image")})`
     );
 
-    this.logo = lazyLoadImage("eC_White_Reverse.webp");
+    this.logo = lazyLoad("eC_White_Reverse.webp", "image");
   },
 };
 </script>

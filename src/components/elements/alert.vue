@@ -18,14 +18,12 @@
 </template>
 
 <script>
-import Layout from "@/layouts/index";
-
-import Images from "@/components/elements/image";
+import { lazyLoad } from "@/utils";
 
 export default {
   components: {
-    Layout,
-    Images,
+    Layout: lazyLoad("index", "layout"),
+    Images: lazyLoad("image", "component"),
   },
   props: {
     title: {

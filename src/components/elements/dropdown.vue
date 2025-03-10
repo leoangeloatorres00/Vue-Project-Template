@@ -56,14 +56,16 @@
 </template>
 
 <script>
-import Layout from "@/layouts/index";
-
-import Images from "@/components/elements/image.vue";
-import Search from "@/components/elements/search.vue";
-import TextField from "@/components/elements/text_field.vue";
-import BottomSheet from "@/components/elements/bottom_sheet.vue";
+import { lazyLoad } from "@/utils";
 
 export default {
+  components: {
+    Layout: lazyLoad("index", "layout"),
+    Images: lazyLoad("image", "component"),
+    Search: lazyLoad("search", "component"),
+    BottomSheet: lazyLoad("text_field", "component"),
+    TextField: lazyLoad("bottom_sheet", "component"),
+  },
   props: {
     placeholder: {
       type: String,
@@ -120,13 +122,6 @@ export default {
         this.isDropdownOpen = value;
       }
     );
-  },
-  components: {
-    Layout,
-    Images,
-    Search,
-    BottomSheet,
-    TextField,
   },
   computed: {
     isListEmpty: function () {

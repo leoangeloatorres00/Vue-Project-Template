@@ -16,9 +16,12 @@
 </template>
 
 <script>
-import Button from "@/components/elements/button.vue";
+import { lazyLoad } from "@/utils";
 
 export default {
+  components: {
+    Button: lazyLoad("button", "component"),
+  },
   props: {
     items: {
       type: Array,
@@ -38,9 +41,6 @@ export default {
         return "";
       },
     },
-  },
-  components: {
-    Button,
   },
   data: () => {
     return {
